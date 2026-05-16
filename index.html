@@ -208,8 +208,26 @@
 
 </div>
 
-<script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, onSnapshot }
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSy...",
+  authDomain: "nc-arena.firebaseapp.com",
+  projectId: "nc-arena",
+  storageBucket: "nc-arena.firebasestorage.app",
+  messagingSenderId: "372698332125",
+  appId: "1:372698332125:web:9210ead9703430cb81d434"
+};
+
+   const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+console.log("Firebase OK");
+   
 let players = [];
 
 async function fetchPlayer(username){
